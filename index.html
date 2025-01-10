@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Salempang Padang</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap" rel="stylesheet">
+
+  <!-- Feather Icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <!-- My Style -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Alpine JS -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- Custom JS -->
+  <script src="src/app.js"></script>
+  <script src="https://unpkg.com/typeit@@{TYPEIT_VERSION}/dist/index.umd.js"></script>
+</head>
+
+<body>
+  
+  <!-- Navbar start -->
+  <nav class="navbar" x-data>
+    <a href="#" class="navbar-logo">Salempang<span>Padang</span>.</a>
+
+    <div class="navbar-nav">
+      <a href="#home">Home</a>
+      <a href="#about">Tentang Kami</a>
+      <a href="#menu">video</a>
+      <a href="produk.html">Produk</a>
+      <a href="#contact">Maps</a>
+      <a href="#komentar">Komentar</a>
+    </div>
+
+    <div class="navbar-extra">
+      <a href="#" id="search-button"><i data-feather="search"></i></a>
+      <a href="#" id="shopping-cart-button">
+        <i data-feather="shopping-cart"></i>
+        <span class="quantity-badge" x-show="$store.cart.quantity" x-text="$store.cart.quantity"></span>
+      
+      </a>
+      <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
+    </div>
+
+    <!-- Search Form start -->
+    <div class="search-form">
+      <input type="search" id="search-box" placeholder="search here...">
+      <label for="search-box"><i data-feather="search"></i></label>
+    </div>
+    <!-- Search Form end -->
+
+    <!-- Shopping Cart start -->
+    <div class="shopping-cart">
+      <template x-for="(item, index) in $store.cart.items" x-keys="index">
+      <div class="cart-item">
+        <img :src="item.img ? 'img/products/' + item.img : 'img/default.jpg'" :alt="item.name">
+        <div class="item-detail">
+          <h3>Product</h3>
+          <div class="item-price">
+            <span x-text="rupiah(item.price)"></span>&times;
+            <button id="remove" @click="$store.cart.remove(item.id)">&minus;</button>
+            <span x-text="item.quantity"></span>
+            <button id="add" @click="$store.cart.add(item)">&plus;</button>&equals;
+            <span x-text="rupiah (item.total)"></span>
+          </div>
+        </div>
+        <i data-feather="trash-2" class="remove-item"></i>
+      </div>
+    </template>
+    <h4 x-show="!$store.cart.items.length" style="margin-top: 1rem;">KERANJANG ANDA MASIH KOSONG</h4>
+    <h4 x-show="$store.cart.items.length">Total : <span x-text="rupiah($store.cart.total)"></span></h4>
+
+    <div class="form-container" x-show="$store.cart.items.length">
+      <form action="" id="checkoutForm">
+        <h5>Costumer Detail</h5>
+        <label for="name">
+          <span>Name</span>
+          <input type="text" name="name" id="name">
+        </label>
+        <label for="email">
+          <span>Email</span>
+          <input type="email" name="email" id="email">
+        </label>
+        <label for="phone">
+          <span>Phone</span>
+          <input type="phone" name="phone" id="phone" autocomplete="off">
+        </label>
+        <button class="checkout-button" type="submit" id="checkout-button">Checkout</button>
+      </form>
+    </div>
+  </div>
+    <!-- Shopping Cart end -->
+
+  </nav>
+  <!-- Navbar end -->
+
+  <!-- Hero Section start -->
+  <section class="hero" id="home">
+    <div class="mask-containerr">
+      <main class="content">
+        <h1 class="animated-text">Selamat Datang</h1>
+       <marquee> <h2><p><div class="mb-3">
+          <label for="input1" class="form-label">Ayo beli produk kami</label>
+          <input
+            type="color"
+            id="input1"
+            title="Choose your color"
+          />
+        </div></p></h2> </marquee> <br><br><br>
+        <div class="hero-text">
+          <h3>
+            <p>
+                Kami dengan senang hati menyambut Anda di tempat kami, <br>
+                "Wujudkan Momen Spesial dengan Karya Terbaik Kami!"
+                Selamat datang! Kami menyediakan berbagai kebutuhan untuk acara istimewa Anda,
+                mulai dari medali yang elegan, selempang wisuda yang berkesan,
+                  hingga plakat eksklusif untuk penghargaan. Dengan desain yang unik dan kualitas premium,
+                  kami siap membantu Anda menciptakan kenangan yang tak terlupakan.
+                "Ciptakan Penghargaan yang Berarti Bersama Kami!"
+                Dapatkan medali, selempang, plakat, dan produk custom lainnya yang dirancang khusus untuk 
+                mencerminkan keistimewaan momen Anda. Pesan sekarang dan jadikan acara Anda lebih berkesan!
+
+
+            </p>
+        </h3>
+          </div>
+      </main>
+    </div>
+  </section>
+  <!-- Hero Section end -->
+
+  <!-- About Section start -->
+  <section id="about" class="about">
+    <h2><span>Tentang</span> Kami</h2><br> <span> HP. 0812-7771-1705</span>
+
+    <div class="row">
+      <div class="about-img">
+        <img src="img/tentangkami.png" alt="Tentang Kami">
+        <p><marquee> ***Kunjungi Alamat Kami......... </marquee>
+          CP. One Advertising Jl. Gajah Mada no 17, Kel, Kp. Olo, Nanggalo, Padang, Indonesia 25173</p>
+      </div>
+      <div class="content">
+        <h3>Salempang Padang</h3>
+        <p>Selamat datang di <i>CV. Salempang Padang</i>, Kami dengan senang hati menyambut Anda di tempat kami, <br>
+          "Wujudkan Momen Spesial dengan Karya Terbaik Kami!"
+          Kami menyediakan berbagai kebutuhan untuk acara istimewa Anda,
+          mulai dari medali yang elegan, selempang wisuda yang berkesan,
+          hingga plakat eksklusif untuk penghargaan. Dengan desain yang unik dan kualitas premium,
+          kami siap membantu Anda menciptakan kenangan yang tak terlupakan.
+          <i> Pesan sekarang dan jadikan acara Anda lebih berkesan!</i>
+        </p>
+        
+      </div>
+    </div>
+  </section>
+  <!-- About Section end -->
+
+  <!-- Menu Section start -->
+  <section id="menu" class="menu">
+    <h2><span>Video</span> Content</h2>
+    <p>Terima kasih sudah menonton! Jangan lupa untuk selalu melihat produk terbaru kami 
+      dan berikan masukan pada video kami sehingga bisa lebih baik di lain waktu . </p>
+
+    <div class="row">
+      <!-- Baris Pertama -->
+      <div class="row mb-3">
+        <!-- Baris Pertama -->
+        <div class="menu-card">
+            <video width="200" height="100" controls>
+                <source src="video/konten.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <h3 class="menu-card-title">Video 1</h3>
+        </div>
+        <div class="menu-card">
+            <video width="300" height="150" controls>
+                <source src="video/konten1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <h3 class="menu-card-title">Video 2</h3>
+        </div>
+    </div>
+    
+    <div class="row mb-3">
+        <!-- Baris Kedua -->
+        <div class="menu-card">
+            <video width="300" height="150" controls>
+                <source src="video/konten3.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <h3 class="menu-card-title">Video 3</h3>
+        </div>
+        <div class="menu-card">
+            <video width="300" height="150" controls>
+                <source src="video/konten4.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <h3 class="menu-card-title">Video 4</h3>
+        </div>
+    </div>
+    
+</section>
+  <!-- Menu Section end -->
+
+  <!-- Products Section start -->
+  <section class="products" id="products" x-data="products">
+    <h2><span>Produk Unggulan</span> Kami</h2>
+    <h1><p>Salempang Untuk Acara Wisuda, acara perpisahan tingkat SMA dan SMK, juga kami menyediakan plakat dan medali yang berkualitas bagus</p>
+    </h1>
+    <!-- <div class="row">
+      <template x-for="(item, index) in items" :key="index">
+        <div class="product-card">
+          <div class="product-icons">
+            <a href="#" @click.prevent="$store.cart.add(item)">
+              <svg
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <use href="img/feather-sprite.svg#shopping-cart" />
+            </svg> 
+            </a>
+            <a href="#" class="item-detail-button">
+              <svg
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <use href="img/feather-sprite.svg#eye" />
+            </svg>
+            </a>  
+          </div>
+          <div class="product-image">
+            <img :src="'img/products/' + item.img" :alt="item.name">
+          </div>
+          <div class="product-content">
+            <h3 x-text="item.name"></h3>
+            <div class="product-stars">
+              <svg
+              width="24"height="24"fill="currentColor"stroke="currentColor"stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <use href="img/feather-sprite.svg#star" />
+            </svg>
+            <svg
+              width="24"height="24"fill="currentColor"stroke="currentColor"stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <use href="img/feather-sprite.svg#star" />
+            </svg>
+            <svg
+              width="24"height="24"fill="currentColor"stroke="currentColor"stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <use href="img/feather-sprite.svg#star" />
+            </svg>
+            <svg
+              width="24"height="24"fill="currentColor"stroke="currentColor"stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <use href="img/feather-sprite.svg#star" />
+            </svg>
+            </div>
+            <div class="product-price">
+              <span x-text="rupiah(item.price)"></span>
+            </div>
+          </div>
+        </div>
+      </template>
+    </div>
+  </section> -->
+  <!-- Products Section end -->
+
+<!-- Contact Section start -->
+<section id="contact" class="contact">
+  <h2><span>Google</span> Maps</h2>
+  <p>Kami siap membantu Anda untuk setiap kebutuhan anda <br>
+    silahkan kunjungi alamat kami 
+  </p>
+
+  <div class="row">
+    <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d249.33230448269333!2d100.363516728151!3d-0.9084035841804451!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4b983759cd313%3A0xa09a79c24591f76!2sCP.%20One!5e0!3m2!1sid!2sid!4v1736218232335!5m2!1sid!2sid" 
+        allowfullscreen="" 
+        loading="lazy">
+    </iframe>
+    <form id="contactForm">
+        <!-- Isi form Anda -->
+    </form>
+</div>
+  <!-- <div class="row">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d249.33230448269333!2d100.363516728151!3d-0.9084035841804451!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4b983759cd313%3A0xa09a79c24591f76!2sCP.%20One!5e0!3m2!1sid!2sid!4v1736218232335!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" ></iframe>
+    <form id="contactForm">
+      <div class="input-group">
+          <i data-feather="user"></i>
+          <input type="text" id="name" placeholder="Nama" required>
+      </div>
+      <div class="input-group">
+          <i data-feather="mail"></i>
+          <input type="email" id="email" placeholder="Email" required>
+      </div>
+      <div class="input-group">
+          <i data-feather="phone"></i>
+          <input type="text" id="phone" placeholder="No HP" required>
+      </div>
+      <div class="input-group">
+        <input type="text" id="phone" placeholder="Buat Pesan" required>
+    </div>
+
+      <button type="submit" class="btn">Kirim Pesan</button> -->
+  <!-- </form> --> 
+
+  <div class="success-message" id="successMessage" style="display: none;">
+      Pesan berhasil dikirim! Terima kasih telah menghubungi kami.
+  </div>
+
+  <script>
+      // Menangkap elemen form
+      const form = document.getElementById('contactForm');
+      const successMessage = document.getElementById('successMessage');
+
+      // Menambahkan event listener untuk submit
+      form.addEventListener('submit', function(event) {
+          event.preventDefault(); // Mencegah refresh halaman
+
+          // Menangkap data input
+          const name = document.getElementById('name').value;
+          const email = document.getElementById('email').value;
+          const phone = document.getElementById('phone').value;
+
+          // Validasi sederhana
+          if (name && email && phone) {
+              // Menampilkan pesan sukses
+              successMessage.style.display = 'block';
+
+              // Reset form
+              form.reset();
+          } else {
+              alert('Harap isi semua field!');
+          }
+      });
+  </script>
+
+  </div>
+</section>
+<!-- Contact Section end -->
+ <!--komentar start-->
+ <style>
+  body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+  }
+
+  .comment-box {
+      width: 50%;
+      margin: 0 auto;
+  }
+
+  .comment-form input,
+  .comment-form textarea {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      text-align: justify;
+  }
+
+  .comment-form button {
+      padding: 10px 15px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+  }
+
+  .comment-form button:hover {
+      background-color: #0056b3;
+  }
+
+  .comment-list {
+      list-style-type: none;
+      padding: 0;
+  }
+
+  .comment-item {
+      border-bottom: 1px solid #ccc;
+      padding: 10px 0;
+      position: relative;
+  }
+
+  .comment-item strong {
+      display: block;
+      font-size: 1.1em;
+  }
+
+  .comment-item span {
+      font-size: 0.9em;
+      color: #555;
+  }
+
+  .delete-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 5px 10px;
+      background-color: #FF4D4D;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+  }
+
+  .delete-button:hover {
+      background-color: #cc0000;
+  }
+</style>
+
+<div section id="komentar" class="comment-box">
+  <h2>Kolom <span>Komentar</span></h2>
+  <div class="comment-form">
+      <input type="text" id="name-input" placeholder="Nama Anda" required>
+      <input type="email" id="email-input" placeholder="Email Anda" required>
+      <input type="text" id="phone-input" placeholder="Nomor HP Anda" required>
+      <textarea id="comment-input" rows="4" placeholder="Tulis komentar Anda di sini..." required></textarea>
+      <button onclick="addComment()">Kirim Komentar</button>
+  </div>
+  <ul id="comment-list" class="comment-list"></ul>
+</div>
+
+<script>
+  const commentList = document.getElementById('comment-list');
+
+  // Fungsi untuk menampilkan komentar dari Local Storage
+  function loadComments() {
+      const comments = JSON.parse(localStorage.getItem('comments')) || [];
+      comments.forEach((comment, index) => {
+          displayComment(comment.name, comment.email, comment.phone, comment.text, index);
+      });
+  }
+
+  // Fungsi untuk menambahkan komentar baru
+  function addComment() {
+      const name = document.getElementById('name-input').value;
+      const email = document.getElementById('email-input').value;
+      const phone = document.getElementById('phone-input').value;
+      const text = document.getElementById('comment-input').value;
+
+      if (!name || !email || !phone || !text) {
+          alert("Semua kolom harus diisi!");
+          return;
+      }
+
+      const comments = JSON.parse(localStorage.getItem('comments')) || [];
+      comments.push({ name, email, phone, text });
+      localStorage.setItem('comments', JSON.stringify(comments));
+
+      displayComment(name, email, phone, text, comments.length - 1);
+
+      // Reset form
+      document.getElementById('name-input').value = '';
+      document.getElementById('email-input').value = '';
+      document.getElementById('phone-input').value = '';
+      document.getElementById('comment-input').value = '';
+  }
+
+  // Fungsi untuk menampilkan komentar di DOM
+  function displayComment(name, email, phone, text, index) {
+      const commentItem = document.createElement('li');
+      commentItem.className = 'comment-item';
+      commentItem.dataset.index = index;
+      commentItem.innerHTML = `
+          <strong>${name}</strong>
+          <span>Email: ${email}</span><br>
+          <span>Nomor HP: ${phone}</span>
+          <p>${text}</p>
+          <button class="delete-button" onclick="deleteComment(${index})">Hapus</button>
+      `;
+      commentList.appendChild(commentItem);
+  }
+
+  // Fungsi untuk menghapus komentar
+  function deleteComment(index) {
+      let comments = JSON.parse(localStorage.getItem('comments')) || [];
+      comments.splice(index, 1);
+      localStorage.setItem('comments', JSON.stringify(comments));
+
+      // Hapus elemen dari DOM
+      document.querySelectorAll('.comment-item').forEach((item) => {
+          if (parseInt(item.dataset.index) === index) {
+              commentList.removeChild(item);
+          }
+      });
+
+      // Reload komentar
+      commentList.innerHTML = '';
+      loadComments();
+  }
+
+  // Memuat komentar saat halaman dimuat
+  window.onload = loadComments;
+</script>
+
+  <script src="script.js"></script>
+ <!--komentar end-->
+  <!-- Footer start -->
+  <footer>
+    <div class="socials">
+      <a href="https://www.instagram.com/salempang_padang_murah/" target="_blank"><i data-feather="instagram"></i>Instagram</a>
+      <a href="#" target="_blank"><i data-feather="twitter"></i>twitter</a>
+      <a href="https://www.facebook.com/tealandgr333n" target="_blank"><i data-feather="facebook"></i>Facebook</a>
+    </div>
+
+    <div class="links">
+      <a href="#home">Home</a>
+      <a href="#about">Tentang Kami</a>
+      <a href="#menu">Menu</a>
+      <a href="#contact">Maps</a>
+      <a href="#komentar">Komentar</a>
+    </div>
+
+    <div class="credit">
+      <p>Created by <a href="#">Novia Fajar</a>. | &copy; 2025.</p>
+    </div>
+  </footer>
+  <!-- Footer end -->
+
+  <!-- Modal Box Item Detail start -->
+  <div class="modal" id="item-detail-modal">
+    <div class="modal-container">
+      <a href="#" class="close-icon"><i data-feather="x"></i></a>
+      <div class="modal-content">
+        <img src="" alt="Product Image" id="modal-product-image">
+        <div class="product-content">
+          <h3 id="modal-product-title">Product Name</h3>
+          <p id="modal-product-description">Lorem ipsum dolor sit amet consectetur.</p>
+          <div class="product-stars">
+            <i data-feather="star" class="star-full"></i>
+            <i data-feather="star" class="star-full"></i>
+            <i data-feather="star" class="star-full"></i>
+            <i data-feather="star" class="star-full"></i>
+            <i data-feather="star"></i>
+          </div>
+          <div class="product-price" id="modal-product-price">IDR 30K <span>IDR 55K</span></div>
+          <a href="#"><i data-feather="shopping-cart"></i> <span>add to cart</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal Box Item Detail end -->
+
+  <!-- Feather Icons Initialization -->
+  <script>
+    feather.replace();
+  </script>
+
+  <!-- My Javascript -->
+  <script src="js/script.js"></script>
+
+</body>
+
+</html>
