@@ -1,14 +1,41 @@
-# Toko Salempang Padang
-Ini adalah project pembuatan website sederhama dengan HTML,CSS dan Javascript , mengikuti tutorial video dari Web Programming UNPAS di bawakan oleh Novia Fajar
+🎀 Toko Salempang
 
-link video : 
+Selamat datang di Toko Salempang! Kami menyediakan berbagai macam salempang berkualitas tinggi untuk berbagai keperluan, mulai dari wisuda, acara resmi, hingga kebutuhan custom lainnya.
 
-link github https://fajar231013017.github.io/salempangpadang/
+🎯 Tentang Kami
 
-Disini menggunakan :
-1. Html, css dan javascript saja
-2. Untuk icon menggunakan https://feathericons.com/
-3. Untuk aset gambar menggunakan https://unsplash.com/
+Toko Salempang adalah bisnis yang berfokus pada pembuatan dan penjualan salempang dengan desain eksklusif dan bahan berkualitas. Kami siap melayani pemesanan dalam jumlah kecil maupun besar dengan berbagai pilihan warna dan teks custom.
 
+✨ Produk Kami
 
-Untuk mengetahui lebih lanjut silahkan menonton video tersebut.
+Salempang Wisuda
+
+Salempang Organisasi
+
+Salempang Custom
+
+Salempang Event & Perlombaan
+
+📌 Fitur
+
+✅ Kualitas bahan premium 
+✅ Desain dapat disesuaikan 
+✅ Pilihan warna yang beragam 
+✅ Proses pemesanan mudah 
+✅ Pengiriman ke seluruh Indonesia 
+
+📦 Cara Pemesanan
+
+Pilih jenis dan desain salempang yang diinginkan.
+
+Hubungi kami melalui WhatsApp atau media sosial.
+
+Konfirmasi desain dan lakukan pembayaran.
+
+Proses produksi & pengiriman.
+
+📞 Hubungi Kami
+📍 Instagram: @toko_salempang📍 WhatsApp: +62 82386731688📍 Email: tokosalempang@gmail.com
+
+⭐ Kontribusi
+Jika Anda memiliki ide, saran, atau ingin berkontribusi dalam pengembangan bisnis ini, jangan ragu untuk menghubungi kami!
