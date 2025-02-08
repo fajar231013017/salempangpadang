@@ -1,9 +1,9 @@
-# kedai-kopi-kenangan-senja
-Ini adalah project pembuatan website sederhama dengan HTML,CSS dan Javascript , mengikuti tutorial video dari Web Programming UNPAS di bawakan oleh Bapak Sandika Galih
+# Toko Salempang Padang
+Ini adalah project pembuatan website sederhama dengan HTML,CSS dan Javascript , mengikuti tutorial video dari Web Programming UNPAS di bawakan oleh Novia Fajar
 
 link video : https://youtu.be/MCVkMmYL-aY
 
-link github Bpk. Sandika Galih ( WPU ) : https://github.com/sandhikagalih
+link github https://fajar231013017.github.io/salempangpadang/
 
 Disini menggunakan :
 1. Html, css dan javascript saja
