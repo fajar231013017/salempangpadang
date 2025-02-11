@@ -38,8 +38,8 @@ Jika Anda ingin menjalankan proyek ini secara lokal:
 1. Clone repositori ini:sh
    git clone (https://github.com/fajar231013017/salempangpadang)
 2.  Buka **Visual Studio Code** dan buka folder proyek yang telah di-clone.
-   cd salempang-padang
-   code .
+3.   **cd salempang-padang**
+4.  ketik : **code .**
 3. Buka folder proyek dan jalankan file `index.html` di browser Anda.
 4. Untuk perubahan lebih lanjut, edit file **HTML, CSS, atau JavaScript** sesuai kebutuhan.
 
